@@ -1,0 +1,57 @@
+Angular 2 Fundamentals
+
+By Jim Cooper: @jimthecoop  
+And Joe Eames: @josepheames
+
+Learn about:
+	Architecture (and how to bootstrap applciations)
+	Angular Components
+	Reusable Services (dependency injection)
+	Forms and Validation
+	API calls
+	Unit Test
+	Package Everything together
+
+
+Getting Started with Angular
+
+Creating and Communicating Between Angular Components
+
+Exploring the Angular Template Syntax
+
+
+Creating Reusable Angular Services
+
+
+Creating Reusable Angular Services
+
+Routing and Navigating Pages
+
+Collecting Data with Angular Forms and Validation
+
+Communicating Between Components
+
+Reusing Components with Content Projection
+
+
+Displaying Data with Pipes
+
+
+Understanding Angular's Dependency Injection
+
+
+Creating Directives and Advanced Components in Angular
+
+More Components and Custom Validators
+
+Communciating with the Server Using Http, Observables, and RX
+
+
+Unit Testing your Angular Code
+
+
+Testing Angular Components with Integrated Tests
+
+
+Taking an Angular App to Production
+
