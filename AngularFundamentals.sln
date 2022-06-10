@@ -10,7 +10,44 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notes", "notes", "{DAF44510
 		AngularFundamentals.txt = AngularFundamentals.txt
 	EndProjectSection
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Angular-Fundamentals", "Angular-Fundamentals\Angular-Fundamentals.njsproj", "{B4E65E50-01C0-4A8F-BC13-45371394AB73}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ng-fundamentals", "ng-fundamentals\", "{C53CBA20-44F9-4201-864F-5B9C980171DD}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_59814"
+		Debug.AspNetCompiler.PhysicalPath = "ng-fundamentals\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59814\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_59814"
+		Release.AspNetCompiler.PhysicalPath = "ng-fundamentals\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59814\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "59814"
+		SlnRelativePath = "ng-fundamentals\"
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4E65E50-01C0-4A8F-BC13-45371394AB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4E65E50-01C0-4A8F-BC13-45371394AB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4E65E50-01C0-4A8F-BC13-45371394AB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4E65E50-01C0-4A8F-BC13-45371394AB73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C53CBA20-44F9-4201-864F-5B9C980171DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C53CBA20-44F9-4201-864F-5B9C980171DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C53CBA20-44F9-4201-864F-5B9C980171DD}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C53CBA20-44F9-4201-864F-5B9C980171DD}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

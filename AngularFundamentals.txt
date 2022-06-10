@@ -12,10 +12,130 @@ Learn about:
 	Unit Test
 	Package Everything together
 
+	Basic JavaScript
+		app.pluralsight.com/paths/skills/javascript
+	Basic HTML
+		app.pluralsight.com/paths/skills/html
+
+	Helpful to Know:
+
+		Node and Npm
+			app.pluralsight.com/courses/npm-playbook
+
+		ES2015 (ES6)
+			app.pluralsight.com/courses/javascript-fundamentals-es6
+
+		TypeScript
+			app.pluralsight.com/courses/typescript
+
+		Practice Exercises
+			https://jcoop.io/angular-practice-exercises/
+
+	TypeScript Overview
+
+		Superset of JavaScript (additional features available for use)
+		Uses transpilation.
+		Syntactic Sugar
+		You end up with valid JS (Dev syntactic sugar)
+
+		Static Typing
+			let variableName: string
+
+		Interfaces
+			interace ICat {
+				name: string
+				age?:number 
+			}
+
+			let fluffly:ICat
+
+		Class Properties
+
+			class Cat {
+				name: string
+				color: string
+				constructor (name) {
+					this.name = name
+				}
+			}
+
+		Accessibility Levels: Public/Properties
+
+			class Cat {
+				name: string
+				color: string
+				constructor (name) {
+					this.name = name
+				}
+
+				speak() { console.log('meow') }
+			}
+
+			let fluffy = new Cat()
+			console.log(fluffy.name)
+			fluffy.speak
+
+			If you prefix the method and property with privgate the above code would give you a compile time error
+
+			simplified constructor can look like:
+
+			class Cat {
+				constructor(private name, private color ) {
+				}
+			}
+
+			let fluffy = new Cat('Fluffy', 'White');
 
 Getting Started with Angular
+	
+
+			AngularJS (1.x)
+				
+				a View (template) referes to a controller which would expose models or objects
+
+				a directive could create custom html elements to encapsulate display and functionality
+			Angular (2+)
+
+				a component has a template, models that represent your data.
+
+
+	to install angular from commandline:
+		npm install -g @angular/cli@11.2
+
+		browse to src folder and create a project like this:
+			ng new ng-fundamentals
+				(where ng-fundamentals is the project name)
+
+		It failed to fully install for me so I looked at this SO article:
+
+
+		1
+
+I solved this issue by using this command inside my project directory:
+	https://stackoverflow.com/questions/67433893/unable-to-resolve-dependency-tree-error-for-creating-new-angular-project
+
+		and tried this first
+		npm install --save-dev @angular-devkit/build-angular --force
+		npm audit fix --force
+		then I ran my project using "ng serve"
 
 Creating and Communicating Between Angular Components
+
+	Root application component is loaded first
+		I have a matching route and display that route
+
+	At the root is your app file which then loads the base route, that route loads the templates which are components and each of those may 
+	have their own templates and routes in a tree structure on a single page
+
+	Angular Modules can help make sense of this but don't confuse with nodejs modules
+		containers that group all of these route/component trees and corresponding codes
+
+	Component, Service, Directive, Pipe you register it in the Angular Module they are now only available in a module.
+		You must register all of these except services in each model you want them.
+		Services (providers) are injected in the root injector 
+
+	Note setup was a bit crazy but we ended up updating the package and lock json files from github repository
+		https://github.com/jmcooper/angular-fundamentals-files
 
 Exploring the Angular Template Syntax
 
