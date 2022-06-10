@@ -140,11 +140,28 @@ Creating and Communicating Between Angular Components
 Exploring the Angular Template Syntax
 
 
-Creating Reusable Angular Services
-
 
 Creating Reusable Angular Services
 
+	To create a new component
+		1. Add a folder under app
+		2. Create the component template file something like events-list.component.ts
+
+			import { Component } from '@angular/core'
+
+@Component({
+  selector: 'events-list',
+  template: `
+      <div>
+        <h1>Upcoming Angular Events</h1>
+      </div>
+      
+    `
+})
+export class EventsListComponent {
+
+}
+		3. import the component in app.module.ts and add it it to the combent declarations;
 Routing and Navigating Pages
 
 Collecting Data with Angular Forms and Validation
