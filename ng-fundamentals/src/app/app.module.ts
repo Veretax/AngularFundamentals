@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { EventsAppComponent } from './events-app.component';
-import { EventListComponent } from './events/event-list.component';
+import { EventsListComponent } from './events/events-list.component';
 import { EventDetailsComponent } from './events/event-details.component';
 import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { EventAddressComponent } from './events/event-address.component';
@@ -15,13 +15,13 @@ import { NavBarComponent } from "./nav/navbar.component";
   declarations: [
     AppComponent,
     EventsAppComponent,
-    EventListComponent,
+    NavBarComponent,
+    EventsListComponent,
     EventDetailsComponent,
     EventThumbnailComponent,
     EventAddressComponent,
     ParentComponent,
     ChildComponent,
-    NavBarComponent,
   ],
   imports: [
     BrowserModule
