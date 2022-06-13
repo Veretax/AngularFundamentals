@@ -1,9 +1,4 @@
 <div>
-  <h1>Congratulations!</h1>
-  <h4>You got your component to display!</h4>
-  <hr>
-  <h5>How does your event look below?</h5>
-
   <div style="margin-top:30px">
     Event: {{event.name}}
   </div>
@@ -14,6 +9,6 @@
     Time: {{event.time}}
   </div>
   <div>
-    Address: {{event.location.address}}, {{event.location.city}}, {{event.location.country}}
+    Address: <event-address [address]="event.location"></event-address>
   </div>
 </div>
