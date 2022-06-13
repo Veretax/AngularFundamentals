@@ -1,9 +1,9 @@
 <div>
   <div class="legend">
-    <span class="in-person">In Person</span> <span class="online">Online</span> <span class="tbd">TBD</span>
+    <span class="in-person">In Person</span> <span class="online">Online</span> <span class="hybrid">Hybrid</span> <span class="tbd">TBD</span>
   </div>
   <div *ngFor="let event of events" class="well hoverwell thumbnail">
-    <h2 [ngClass]="getTitleClass(event.format)">{{event.name}}</h2>
+    <h2 [ngClass]="getTitleClass(event)">{{event.name}}</h2>
     <div>Date: {{event.date}}</div>
     <div>Time: {{event.time}}</div>
     <div *ngIf="event.location">
