@@ -144,6 +144,9 @@ Exploring the Angular Template Syntax
 			BEM: https://getbem.com/introduction
 			SMACSS: https://smacss.com
 
+			If you find yourself stumbling with local or other styles look into deep selector
+
+
 Creating Reusable Angular Services
 
 	To create a new component
