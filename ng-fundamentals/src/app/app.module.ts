@@ -9,6 +9,7 @@ import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { EventAddressComponent } from './events/event-address.component';
 import { ParentComponent } from "./sample/parent.component";
 import { ChildComponent } from "./sample/child.component";
+import { NavBarComponent } from "./nav/navbar.component";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ChildComponent } from "./sample/child.component";
     EventAddressComponent,
     ParentComponent,
     ChildComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule
