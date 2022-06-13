@@ -109,7 +109,25 @@ Getting Started with Angular
 		It failed to fully install for me so I looked at this SO article:
 
 
-		1
+	To create a new component
+		1. Add a folder under app
+		2. Create the component template file something like events-list.component.ts
+
+			import { Component } from '@angular/core'
+
+@Component({
+  selector: 'events-list',
+  template: `
+      <div>
+        <h1>Upcoming Angular Events</h1>
+      </div>
+      
+    `
+})
+export class EventsListComponent {
+
+}
+		3. import the component in app.module.ts and add it it to the combent declarations;
 
 I solved this issue by using this command inside my project directory:
 	https://stackoverflow.com/questions/67433893/unable-to-resolve-dependency-tree-error-for-creating-new-angular-project
@@ -146,28 +164,61 @@ Exploring the Angular Template Syntax
 
 			If you find yourself stumbling with local or other styles look into deep selector
 
+	Interpolation and Property Binding
+
+		Double Curly Brace => Interpolation
+			Interpolation is used when you just need to display that data
+		Square Brackets => Property Binding
+			Property Binding is used when you want to bond it to the property of a DOM element
+		Parenthesis => Event Binding
+
+		Expression Restrictions:
+			Cannot use assignment operators: =,  +=, ++, etc)
+			Cannot use new Keyword
+			Expression Chaining with ;
+			Can't access Global Namespace (like console, window, etc);
+
+		Recommendations
+			Should have No Side-Effects
+			Fast
+			Simple
+			Idempotent - each time it should return the same result
+
+	Event Bindings and Statements
+		s
+		Event Binding Restrictions for Statements
+			Cannot use assignment operators: except =  ( +=, ++, etc)
+			Cannot use new Keyword			
+			Can't access Global Namespace (like console, window, etc);
+
+		Recommendations
+			Can have No Side-Effects
+			No guarantee on Speed
+			Simple
+			Does not have to be idempotent
+			
+	Repeating Data with ngFor
+
+		* before ngFor indicates its a structural directive  it will add an html item for each item in the array
+
+		* let event of events creates a variable event as you loop through it.  nice!
+
+	Handling Null valus with the Safe-Navigation Operator
+
+	Hiding and showing Content with nglf
+
+	Hiding content with the [Hidden] Binding
+
+	Hiding and Showing Content ngSwitch
+
+	Styling Components with ngClass
+
+	Styling Components with ngStyle
+
 
 Creating Reusable Angular Services
 
-	To create a new component
-		1. Add a folder under app
-		2. Create the component template file something like events-list.component.ts
-
-			import { Component } from '@angular/core'
-
-@Component({
-  selector: 'events-list',
-  template: `
-      <div>
-        <h1>Upcoming Angular Events</h1>
-      </div>
-      
-    `
-})
-export class EventsListComponent {
-
-}
-		3. import the component in app.module.ts and add it it to the combent declarations;
+	
 Routing and Navigating Pages
 
 Collecting Data with Angular Forms and Validation
