@@ -138,8 +138,11 @@ Creating and Communicating Between Angular Components
 		https://github.com/jmcooper/angular-fundamentals-files
 
 Exploring the Angular Template Syntax
+	For naming in styles consider:
 
-
+		Name Spacing Standards like:
+			BEM: https://getbem.com/introduction
+			SMACSS: https://smacss.com
 
 Creating Reusable Angular Services
 
