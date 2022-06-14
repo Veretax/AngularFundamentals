@@ -1,29 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
 import { EventsAppComponent } from './events-app.component';
 import { EventService } from "./events/shared/event.service";
 import { ToastrService } from "./common/toastr.service";
 import { EventsListComponent } from './events/events-list.component';
-import { EventDetailsComponent } from './events/event-details.component';
 import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { EventAddressComponent } from './events/event-address.component';
-import { ParentComponent } from "./sample/parent.component";
-import { ChildComponent } from "./sample/child.component";
-import { NavBarComponent } from "./nav/navbar.component";
+import { NavBarComponent } from "./nav/nav-bar.component";
 
 @NgModule({
   declarations: [
-    AppComponent,
     EventsAppComponent,
     NavBarComponent,
     EventsListComponent,
-    EventDetailsComponent,
     EventThumbnailComponent,
     EventAddressComponent,
-    ParentComponent,
-    ChildComponent,
   ],
   imports: [
     BrowserModule
@@ -33,7 +25,6 @@ import { NavBarComponent } from "./nav/navbar.component";
     ToastrService,
     ],
   bootstrap: [
-    AppComponent,
     EventsAppComponent
     
   ]
