@@ -1,12 +1,13 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
+import { EventService } from "./shared/event.service";
 
 @Component({
   selector: 'event-thumbnail',
   template: `
     <div class="well hoverwell thumbnail">
-      <h2>{{event?.name}}</h2>
+      <h2 [ngClass]="eventService.getTitleClass(event)">{{event?.name}}</h2>
       <div>Date: {{event?.date}}</div>
-      <div [ngClass]="getStartTimeClass()" [ngSwitch]="event?.time">Time: {{event?.time}}
+      <div [ngClass]="eventService.getStartTimeClass(event)" [ngSwitch]="event?.time">Time: {{event?.time}}
         <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
         <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
         <span *ngSwitchDefault>(Normal Start)</span>
@@ -28,15 +29,19 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
     .pad-left { margin-left: 10px; }
     .well div  { color: #bbb; }
     .thumbnail { min-height: 210px; }
+    .legend span { padding-right: 30px; }
+    .in-person { color: green; }
+    .hybrid { color: yellow; }
+    .online { color: red; }
+    .tbd { color: #aaa; }
   `]
 })
 export class EventThumbnailComponent {
-  @Input() event: any
+  eventService: EventService;
+  @Input() event: any;
 
-  getStartTimeClass() {
-    if (this.event && this.event.time === '8:00 am') {
-      return ['green', 'bold'];
-    }
-    return [];
+  constructor(eventService: EventService) {
+    this.eventService = eventService;
   }
+
 }
