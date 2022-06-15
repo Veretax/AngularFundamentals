@@ -10,10 +10,14 @@ export class EventService {
     return EVENTS;
   }
 
+  getEvent(id: number) {
+    return EVENTS.find(event => event.id === id);
+  }
+
   getEventFormat(event: any) {
 
     if (event == null) {
-      console.log('returning first TBD');
+      //console.log('returning first TBD');
       return 'TBD';
     }
     if (event.location != null && event.onlineUrl != null) {
@@ -36,7 +40,7 @@ export class EventService {
   getTitleClass(event: any) {
 
     let eventFormat = this.getEventFormat(event);
-    console.log(`my event format is ${eventFormat}`)
+    //console.log(`my event format is ${eventFormat}`)
     if (eventFormat === 'Hybrid') {
       return ['hybrid'];
     }
