@@ -1,11 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { EventService } from "./shared/event.service";
+import { EventService } from './shared/event.service';
 
 @Component({
   selector: 'event-thumbnail',
   template: `
-    <div class="well hoverwell thumbnail">
-      <h2 [ngClass]="eventService.getTitleClass(event)"><a [routerLink]="[event.id]">{{event?.name}}</a></h2>
+    <div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
+      <!--<h2 [ngClass]="eventService.getTitleClass(event)"><a [routerLink]="[event.id]">{{event?.name}}</a></h2>-->
+      <h2 [ngClass]="eventService.getTitleClass(event)">{{event?.name}}</h2>
       <div>Date: {{event?.date}}</div>
       <div [ngClass]="eventService.getStartTimeClass(event)" [ngSwitch]="event?.time">Time: {{event?.time}}
         <span *ngSwitchCase="'8:00 am'">(Early Start)</span>

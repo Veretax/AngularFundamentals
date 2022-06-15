@@ -10,8 +10,8 @@ export class EventService {
     return this.EVENTS;
   }
 
-  getEvent(id: number): any {
-    return this.EVENTS.find(event => event.id === id);
+  getEvent(eventId: number): any {
+    return this.EVENTS.find(event => event.id === eventId);
   }
 
   getEventFormat(event: any): string {
