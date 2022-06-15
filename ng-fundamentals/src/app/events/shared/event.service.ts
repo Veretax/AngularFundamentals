@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class EventService {
@@ -6,15 +6,15 @@ export class EventService {
 
   //ngOnInit(): void {};
 
-  getEvents() {
+  getEvents(): any[] {
     return EVENTS;
   }
 
-  getEvent(id: number) {
+  getEvent(id: number): any {
     return EVENTS.find(event => event.id === id);
   }
 
-  getEventFormat(event: any) {
+  getEventFormat(event: any): string {
 
     if (event == null) {
       //console.log('returning first TBD');
@@ -37,7 +37,7 @@ export class EventService {
     return 'TBD';
   }
 
-  getTitleClass(event: any) {
+  getTitleClass(event: any): any[] {
 
     let eventFormat = this.getEventFormat(event);
     //console.log(`my event format is ${eventFormat}`)
@@ -55,7 +55,7 @@ export class EventService {
     return ['tbd'];
   }
 
-  getStartTimeClass(event: any) {
+  getStartTimeClass(event: any): any[] {
     if (event && event.time === '8:00 am') {
       return ['green', 'bold'];
     }

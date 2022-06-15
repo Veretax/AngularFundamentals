@@ -1,8 +1,7 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 import { EventService } from '../shared/event.service';
 
 @Component({
-  selector: 'event-details',
   templateUrl: 'event-details.component.html',
   styles: [`
     .container { padding-left: 20px;  padding-right: 20px; }
@@ -11,12 +10,12 @@ import { EventService } from '../shared/event.service';
 })
 
 export class EventDetailsComponent {
-  event:any
+    event: any;
 
   constructor(private eventService:EventService) {
 
   }
-  ngOnInit() {
+  ngOnInit():any {
     this.event = this.eventService.getEvent(1);
   }
 }
