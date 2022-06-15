@@ -7,11 +7,11 @@ export class EventService {
   //ngOnInit(): void {};
 
   getEvents(): any[] {
-    return EVENTS;
+    return this.EVENTS;
   }
 
   getEvent(id: number): any {
-    return EVENTS.find(event => event.id === id);
+    return this.EVENTS.find(event => event.id === id);
   }
 
   getEventFormat(event: any): string {
@@ -61,9 +61,9 @@ export class EventService {
     }
     return [];
   }
-}
 
-const EVENTS  = [
+
+  private EVENTS:any[]  = [
     {
       id: 1,
       name: 'Angular Connect',
@@ -375,3 +375,4 @@ const EVENTS  = [
       ]
     }
   ]
+}

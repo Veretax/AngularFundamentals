@@ -5,7 +5,6 @@ import { ToastrService } from "../common/toastr.service";
 declare let toastr:any;
 
 @Component({
-  selector: 'events-list',
   //templateUrl: 'events-list.component.html',
   template: `
     <div>
@@ -16,7 +15,7 @@ declare let toastr:any;
           </div>
       <div class="row">
         <div *ngFor="let event of events" class="col-md-5">
-          <event-thumbnail (click)="handleThumbnailClick(event.name)" [event]="event"></event-thumbnail>
+          <event-thumbnail [event]="event"></event-thumbnail>
         </div>
       </div>
     </div>
