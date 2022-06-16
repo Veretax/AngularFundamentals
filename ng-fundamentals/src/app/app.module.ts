@@ -10,7 +10,7 @@ import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { EventAddressComponent } from './events/event-address.component';
 import { NavBarComponent } from './nav/nav-bar.component';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
-import { CreateEventComponent } from "./events/create-events.component";
+import { CreateEventComponent } from './events/create-events.component';
 
 
 import { appRoutes } from './routes';

@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: '// your seletor here',
   template: `
+      <div class="back">
+        <button class="btn btn-info" (click)="returnToEvents()">< Back to Events</button>
+      </div>
 			<h1>New Event</h1>
       <hr/>
       <div class="col-md-6">
@@ -10,14 +13,26 @@ import { Component } from '@angular/core';
         <br/>
         <br/>
         <button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-default">Cancel</button>
+        <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
         
       </div>
+
 		`,
   styles: [`
-		
+    .back { margin-top:10px; }
 	`]
 })
 
 export class CreateEventComponent {
+  constructor(private router: Router) {
+
+  }
+
+  cancel() {
+    this.router.navigate(['/events']);
+  }
+
+  returnToEvents() {
+    this.router.navigate(['']);
+  }
 }
