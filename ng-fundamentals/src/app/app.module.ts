@@ -21,8 +21,10 @@ import { Error404Component } from './errors/404.component';
 
 
 import { appRoutes } from './routes';
+import { EventListResolver as EventsListResolver } from './events/shared/event-list-resolver-service';
 
-@NgModule({
+@
+NgModule({
   declarations: [
     EventsAppComponent,
     NavBarComponent,
@@ -35,7 +37,8 @@ import { appRoutes } from './routes';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, { useHash: true }),
+    RouterModule.forRoot(appRoutes, { useHash: true, onSameUrlNavigation: 'reload', relativeLinkResolution: 'corrected'}),
+   // RouterModule.forRoot(appRoutes, { useHash: true }),
 
   ],
   providers: [
@@ -45,7 +48,8 @@ import { appRoutes } from './routes';
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
-    }
+    },
+    EventsListResolver,
     ],
   bootstrap: [
     EventsAppComponent
