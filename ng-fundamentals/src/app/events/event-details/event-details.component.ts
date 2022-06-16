@@ -3,6 +3,7 @@ import { EventService } from '../shared/event.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
+  selector: 'event-details',
   templateUrl: 'event-details.component.html',
   styles: [`
     .container { padding-left: 20px;  padding-right: 20px; }
@@ -13,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class EventDetailsComponent {
     event: any;
+    reviewed: boolean=false;
 
   constructor(private eventService: EventService, private route:ActivatedRoute) {
 

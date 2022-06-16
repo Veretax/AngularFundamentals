@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 // app service imports
 import { EventService } from './events/shared/event.service';
 import { ToastrService } from './common/toastr.service';
-import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
+import { EventRouteActivator } from './events/event-details/event-route-activator.service';
 
 // app component imports
 import { EventsAppComponent } from './events-app.component';
@@ -41,7 +41,11 @@ import { appRoutes } from './routes';
   providers: [
     EventService,
     ToastrService,
-    EventRouteActivatorService
+    EventRouteActivator,
+    {
+      provide: 'canDeactivateCreateEvent',
+      useValue: checkDirtyState
+    }
     ],
   bootstrap: [
     EventsAppComponent
@@ -49,3 +53,11 @@ import { appRoutes } from './routes';
   ]
 })
 export class AppModule { }
+
+
+export function checkDirtyState(component: CreateEventComponent) {
+  if (component.isDirty) {
+    return window.confirm('You have not saved this event, do you really want to cancel?');
+  }
+  return true;
+}
