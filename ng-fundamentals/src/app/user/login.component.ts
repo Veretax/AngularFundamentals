@@ -6,14 +6,15 @@ import { AuthService } from './auth.service';
   selector: '',
   templateUrl: './login.component.html',
   styles: [`
-		
+		em.required { float: right; color: #E05C65; padding-left: 10px; }
 	`]
 })
 
 export class LoginComponent
 {
-  userName: string = '';
-  password: string = '';
+  userName!: string;
+  password!: string;
+  mouseoverLogin: boolean = false;
 
   constructor(private authService: AuthService, private router: Router)
   {
