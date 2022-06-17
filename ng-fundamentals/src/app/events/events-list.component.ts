@@ -44,12 +44,6 @@ export class EventsListComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // commented out as the resolver in routes takes care of this
-    //this.events = this.eventService.getEvents().subscribe(
-    //    ( events: any ) => {
-    //    this.events = events;
-    //  }
-    //);
     this.events = this.route.snapshot.data['events'];
 
   }

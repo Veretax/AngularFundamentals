@@ -1,4 +1,6 @@
 import { Component } from '@angular/core'
+import { AuthService } from '../user/auth.service';
+import { IUser } from '../user/user.model';
 
 @Component({
   selector: 'nav-bar',
@@ -13,6 +15,17 @@ import { Component } from '@angular/core'
   `]
 })
 
-export class NavBarComponent {
+export class NavBarComponent
+{
+  auth: AuthService = new AuthService;
+  currentUser!: IUser;
 
+  constructor(authService: AuthService)
+  {
+
+  }
+
+  ngOnInit() {
+    this.currentUser = authService.
+  }
 }

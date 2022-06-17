@@ -386,6 +386,10 @@ export class EventService {
     return [];
   }
 
-
+  saveEvent(event: IEvent)
+  {
+    event.id = this.EVENTS[this.EVENTS.length - 1].id + 1;
+    this.EVENTS.push(event);
+  }
   
 }

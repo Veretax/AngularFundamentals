@@ -25,6 +25,8 @@ import { Error404Component } from './errors/404.component';
 
 import { appRoutes } from './routes';
 import { EventListResolver as EventsListResolver } from './events/shared/event-list-resolver-service';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from './user/auth.service';
 
 @
 NgModule({
@@ -40,6 +42,7 @@ NgModule({
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes, { useHash: true, onSameUrlNavigation: 'reload', relativeLinkResolution: 'corrected'}),
    // RouterModule.forRoot(appRoutes, { useHash: true }),
 
@@ -53,7 +56,9 @@ NgModule({
       useValue: checkDirtyState
     },
     EventsListResolver,
-    ],
+    AuthService,
+
+  ],
   bootstrap: [
     EventsAppComponent
     
