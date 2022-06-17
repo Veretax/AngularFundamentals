@@ -20,12 +20,12 @@ export class NavBarComponent
   auth: AuthService = new AuthService;
   currentUser!: IUser;
 
-  constructor(authService: AuthService)
+  constructor(auth: AuthService)
   {
 
   }
 
   ngOnInit() {
-    this.currentUser = authService.
+    this.currentUser = this.auth.getLoggedInUser();
   }
 }
