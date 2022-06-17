@@ -232,6 +232,13 @@ Routing and Navigating Pages
 
 Collecting Data with Angular Forms and Validation
 
+	Using Data Models for Type Safety
+	Template Bsed Forms
+	Model driven forms
+	Two way data bindings
+	Custom validators
+
+
 Communicating Between Components
 
 Reusing Components with Content Projection

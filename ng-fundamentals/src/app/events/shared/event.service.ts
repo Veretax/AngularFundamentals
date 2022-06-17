@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { IEvent } from './event.model';
 
 @Injectable()
 export class EventService {
@@ -7,77 +8,11 @@ export class EventService {
 
   //ngOnInit(): void {};
 
-  getEvents(): any {
-    let subject = new Subject();
-
-    setTimeout(() => {
-        subject.next(this.EVENTS);
-        subject.complete();
-      },
-      100
-    );
-
-    return subject;
-  }
-
-  getEvent(eventId: number): any {
-    return this.EVENTS.find(event => event.id === eventId);
-  }
-
-  getEventFormat(event: any): string {
-
-    if (event == null) {
-      //console.log('returning first TBD');
-      return 'TBD';
-    }
-    if (event.location != null && event.onlineUrl != null) {
-      //console.log('returning Hybrid');
-      return 'Hybrid';
-    }
-    else if (event.location != null && event.onlineUrl == null) {
-      //console.log('returning Inperson');
-      return 'InPerson';
-    }
-    else if (event.location == null && event.onlineUrl != null) {
-      //console.log('returning Online');
-      return 'Online';
-    }
-
-    //console.log('returning Second TBD');
-    return 'TBD';
-  }
-
-  getTitleClass(event: any): any[] {
-
-    let eventFormat = this.getEventFormat(event);
-    //console.log(`my event format is ${eventFormat}`)
-    if (eventFormat === 'Hybrid') {
-      return ['hybrid'];
-    }
-    if (eventFormat === 'InPerson') {
-      return ['in-person'];
-    }
-
-    if (eventFormat === 'Online') {
-      return ['online'];
-    }
-
-    return ['tbd'];
-  }
-
-  getStartTimeClass(event: any): any[] {
-    if (event && event.time === '8:00 am') {
-      return ['green', 'bold'];
-    }
-    return [];
-  }
-
-
-  private EVENTS:any[]  = [
+  private EVENTS: IEvent[] = [
     {
       id: 1,
       name: 'Angular Connect',
-      date: '9/26/2036',
+      date: new Date('9/26/2036'),
       time: '10:00 am',
       price: 599.99,
       imageUrl: '/assets/images/angularconnect-shield.png',
@@ -155,7 +90,7 @@ export class EventService {
     {
       id: 2,
       name: 'ng-nl',
-      date: '4/15/2037',
+      date: new Date('4/15/2037'),
       time: '9:00 am',
       price: 950.00,
       imageUrl: '/assets/images/ng-nl.png',
@@ -216,7 +151,7 @@ export class EventService {
     {
       id: 3,
       name: 'ng-conf 2037',
-      date: '5/4/2037',
+      date: new Date('5/4/2037'),
       time: '9:00 am',
       price: 759.00,
       imageUrl: '/assets/images/ng-conf.png',
@@ -299,7 +234,7 @@ export class EventService {
     {
       id: 4,
       name: 'UN Angular Summit',
-      date: '6/10/2037',
+      date: new Date('6/10/2037'),
       time: '8:00 am',
       price: 800.00,
       imageUrl: '/assets/images/basic-shield.png',
@@ -348,7 +283,7 @@ export class EventService {
     {
       id: 5,
       name: 'ng-vegas',
-      date: '2/10/2037',
+      date: new Date('2/10/2037'),
       time: '9:00 am',
       price: 400.00,
       imageUrl: '/assets/images/ng-vegas.png',
@@ -384,5 +319,73 @@ export class EventService {
         }
       ]
     }
-  ]
+  ];
+
+  getEvents(): Observable<IEvent[]> {
+    let subject = new Subject<IEvent[]>();
+
+    setTimeout(() => {
+        subject.next(this.EVENTS);
+        subject.complete();
+      },
+      100
+    );
+
+    return subject;
+  }
+
+  getEvent(eventId: number): any {
+    return this.EVENTS.find(event => event.id === eventId);
+  }
+
+  getEventFormat(event: IEvent): string {
+
+    if (event == null) {
+      //console.log('returning first TBD');
+      return 'TBD';
+    }
+    if (event.location != null && event.onlineUrl != null) {
+      //console.log('returning Hybrid');
+      return 'Hybrid';
+    }
+    else if (event.location != null && event.onlineUrl == null) {
+      //console.log('returning Inperson');
+      return 'InPerson';
+    }
+    else if (event.location == null && event.onlineUrl != null) {
+      //console.log('returning Online');
+      return 'Online';
+    }
+
+    //console.log('returning Second TBD');
+    return 'TBD';
+  }
+
+  getTitleClass(event: IEvent): any[] {
+
+    let eventFormat = this.getEventFormat(event);
+    //console.log(`my event format is ${eventFormat}`)
+    if (eventFormat === 'Hybrid') {
+      return ['hybrid'];
+    }
+    if (eventFormat === 'InPerson') {
+      return ['in-person'];
+    }
+
+    if (eventFormat === 'Online') {
+      return ['online'];
+    }
+
+    return ['tbd'];
+  }
+
+  getStartTimeClass(event: IEvent): any[] {
+    if (event && event.time === '8:00 am') {
+      return ['green', 'bold'];
+    }
+    return [];
+  }
+
+
+  
 }

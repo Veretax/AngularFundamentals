@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { EventService } from './shared/event.service';
-
+import { IEvent } from './shared/event.model';
 @Component({
   selector: 'event-thumbnail',
   template: `
@@ -39,7 +39,8 @@ import { EventService } from './shared/event.service';
 })
 export class EventThumbnailComponent {
   eventService: EventService;
-  @Input() event: any;
+  @Input()
+    event!: IEvent;
 
   constructor(eventService: EventService) {
     this.eventService = eventService;
