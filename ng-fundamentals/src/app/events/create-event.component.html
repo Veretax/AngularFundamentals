@@ -1,16 +1,19 @@
 <div>
   <form #eventForm="ngForm" (ngSubmit)="saveEvent(eventForm.value)">
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'error': eventForm.controls.name?.invalid && eventForm.controls.name?.touched}">
       <label for="event-name">Event Name: </label>
-      <input (ngModel)="name" name="name" id="event-name" type="text" />
+      <input (ngModel)="name" name="name" id="event-name" type="text" required />
+      <em *ngIf="eventForm.controls.name?.invalid && eventForm.controls.name?.touched">Required</em>
     </div>
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'error': eventForm.controls.date?.invalid && eventForm.controls.date?.touched}">
       <label for="date">Date: </label>
-      <input (ngModel)="date" name="date" id="date" type="text" />
+      <input (ngModel)="date" name="date" id="date" type="text" required />
+      <em *ngIf="eventForm.controls.date?.invalid && eventForm.controls.date?.touched">Required</em>
     </div>
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'error': eventForm.controls.time?.invalid && eventForm.controls.time?.touched}">
       <label for="time">Time: </label>
-      <input (ngModel)="time" name="time" id="time" type="text" />
+      <input (ngModel)="time" name="time" id="time" type="text" required />
+      <em *ngIf="eventForm.controls.time?.invalid && eventForm.controls.time?.touched">Required</em>
     </div>
     <div class="form-group">
       <label for="price">Price: </label>
@@ -21,17 +24,21 @@
       <input (ngModel)="imageUrl" name="imageUrl" id="imageUrl" type="text" />
     </div>
     <div ngModelGroup="location">
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'error': eventForm.controls['location.address']?.invalid  && eventForm.controls['location.address']?.touched}">
         <label for="address">Address: </label>
-        <input (ngModel)="address" name="address" id="address" type="text" />
+        <input (ngModel)="address" name="address" id="address" type="text" required />
+        <em *ngIf="eventForm.controls['location.address']?.invalid && eventForm.controls['location.address']?.touched">Required</em>
       </div>
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'error': eventForm.controls['location.city']?.invalid && eventForm.controls['location.city']?.touched}">
         <label for="city">City: </label>
-        <input (ngModel)="city" name="city" id="city" type="text" />
+        <input (ngModel)="city" name="city" id="city" type="text" required />
+        <em *ngIf="eventForm.controls['location.city']?.invalid && eventForm.controls['location.city']?.touched">Required</em>
       </div>
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'error': eventForm.controls['location.country']?.invalid && eventForm.controls['location.country']?.touched}">
         <label for="country">Country: </label>
-        <input (ngModel)="country" name="country" id="country" type="text" />
+        <input (ngModel)="country" name="country" id="country" type="text"  required pattern="[A-Z]{2}" />
+        <em *ngIf="eventForm.controls['location.country']?.errors?.required && eventForm.controls['location.country']?.touched">Required</em>
+        <em *ngIf="eventForm.controls['location.country']?.value && eventForm.controls['location.country']?.errors?.pattern && eventForm.controls['location.country']?.touched">Must be a two-letter country code</em>
       </div>
     </div>
     <div class="form-group">

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AbstractControl, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+
 import { IEvent, EventService } from './shared/index';
 
 @
@@ -26,11 +28,22 @@ Component({
     form { margin-top: 10px; }
     label { display: block; }
     .form-group { margin-top: 5px; }
+
+    em {color:#E05C65; padding-left:10px;}            
+    .error input {background-color:#E3C3C5;}
 	`]
 })
 
 export class CreateEventComponent
 {
+  private _eventForm!: FormGroup;
+  public get eventForm(): FormGroup {
+    return this._eventForm;
+  }
+  public set eventForm(value: FormGroup) {
+    this._eventForm = value;
+  }
+
   name!: string;
   date!: Date;
   time!: string;
@@ -46,6 +59,7 @@ export class CreateEventComponent
 
   }
 
+  
   saveEvent(event: IEvent)
   {
     this.eventService.saveEvent(event);
